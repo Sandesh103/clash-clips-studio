@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TikTok connected · Clash Clips Studio</title><link rel="stylesheet" href="style.css"></head>
+<body><main><h1>Almost done</h1>
+<p id="msg">Copy this whole address and paste it into Clipper's TikTok connection box.</p>
+<textarea id="u" readonly></textarea><br><button id="c">Copy address</button>
+<p class="muted">If Clipper is running at <code>http://localhost:4310</code>, it finishes automatically when you press the button below.</p>
+<button id="go">Finish in Clipper on this computer</button>
+<script>
+var u=location.href;document.getElementById('u').value=u;
+if(/[?&]error=/.test(u)){document.getElementById('msg').textContent='TikTok sign-in was cancelled or failed. Try connecting again in Clipper.';}
+document.getElementById('c').onclick=function(){navigator.clipboard.writeText(u);this.textContent='Copied';};
+document.getElementById('go').onclick=function(){location.href='http://localhost:4310/api/tiktok/callback'+location.search;};
+</script></main></body></html>
